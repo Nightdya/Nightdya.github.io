@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #header {
+            width: 100%;
+            background-color: #48609e;
+        }
+
+        #header .navbar {
+            height: 100%;
+            width: 100%;
+            border: 0;
+            margin-bottom: 0px;
+        }
+        .bg-light {
+            background-color: #48609e !important;
+        }
+        .pullright{
+           float: right !important;
+        }
+        .pull-right li a{
+            color: white !important;
+            padding: 25px 20px !important;
+            font-size: 16px !important;
+        }
+
+        .center h3 {
+            color: white;
+            font-size: 2.25rem;
+        }
+
+        .sub-slogan {
+            margin-top: 1.8rem;
+            color: #c6cbd8;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .minor-slogan {
+            color: #c6cbd8;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .demo a {
+            display: inline-block;
+            background-color: #0e9e7a;
+            padding: 15px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            margin-top: 2rem;
+            margin-bottom: 5rem;
+        }
+        .demo{
+            margin-bottom: 9rem;
+        }
+
+        .navbar {
+            height: 10rem;
+            z-index: 1000;
+        }
+
+        .centerbox {
+            width: 100%;
+            height: 100%;
+            background-color: #48609e;
+            background: url(./img/carousel-ct.png) no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .center {
+            margin-top: 4rem;
+        }
+
+        .pull-down {
+            height: 54px;
+            width: 54px;
+            background-color: #ffffff;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: -28px;
+            margin: 0 auto;
+            z-index: 8;
+            text-align: center;
+            -webkit-border-radius: 28px;
+            border-radius: 28px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid #c0c0c0;
+        }
+
+        .pull-down a i {
+            color: #8f8f8f;
+            font-size: 36px;
+            display: inline-block;
+            margin-top: -20%;
+            animation: icon-pull-down 1.5s linear infinite;
+        }
+        @keyframes icon-pull-down {
+            0% {
+                opacity: 1;
+                margin-top: -20%;
+            }
+
+            50% {
+                opacity: 1;
+                margin-top: -10%;
+            }
+
+            100% {
+                opacity: 0;
+                margin-top: 10%;
+            }
+        }
+        .fontj{
+            font-size: 20px;
+        }
+        #features > div { 
+            position: relative;
+        }
+        .section-platform {
+            background-color: #fafafa;
+            width: 100%;
+            text-align: center;
+            padding: 5rem 5% 4rem;
+        }
+        .section-platform .title {
+            font-size: 2.6rem;
+            color: #39464b;
+        }
+        .section-platform ul {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            list-style-type: none;
+        }
+        .section-platform ul li {
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            background-color: #4d7db1;
+            border: 1px solid #4d7db1;
+            border-radius: 40px;
+            text-align: center;
+            list-style: none;
+            margin: 3rem 2rem 2rem;
+        }
+        .section ul li a{
+            font-size: 2rem;
+            color: white;
+        }
+        .section ul li{
+            cursor: pointer;
+        }
+        .section ul li:hover{
+            background-color: white;
+        }
+        .section ul li:hover a{
+            color: #4d7db1;
+            text-decoration: none;
+        }
+        .features{
+            margin-top: -3.3rem;
+            background-color: #fafafa;
+        }
+        .section-platform .sub-title {
+            font-size: 1.5rem;
+            color: #909090;
+            padding-top: 10px;
+            padding-top: 1rem;
+        }
+        .section-stage{
+            background-color: #ffffff;
+            color: #586062;
+        }
+        html, body, img {
+            max-width: 100%;
+        }
+        .intro{
+            padding: 9rem 3rem 9rem 0;
+        }
+        .section-filter{
+            background-color: #4679ae;
+            color: #ffffff;
+        }
+        .bigbox{
+            /* width: 1200px; */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bigbox">
+    <div class="box" id="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+            <a class="navbar-brand" href="#">
+               <img src="./img/tianti-logo.png" class="d-inline-block align-top" alt="" loading="lazy">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon pullright"></span>
+            </button>
+            <div class="collapse navbar-collapse row" id="navbarNav">
+            <div class="col-6">
+            </div>
+              <ul class="navbar-nav pull-right col-6">
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">特性</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="docs/ios.html">文档</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="sdk.html">SDK</a>
+                </li>
+                
+                <li class="nav-item user">
+                    <a class="nav-link" href="" class="login">登录</a> 
+                </li>
+
+                <li class="nav-item user">
+                    <a class="nav-link" href="" class="login">注册</a> 
+                </li> 
+              </ul>
+              <p class="sub-title"></p>
+            </div>
+          </nav>
+    </div>
+    <div class="centerbox">
+        <div class="center container">        
+            <div class="row">               
+                <div class="col-6">                
+                <h3>移动游戏深度分析工具</h3>
+                <p class="sub-slogan">特别针对关卡类型游戏，对比分析20多项关卡数据指标</p>
+                <p class="minor-slogan">增强渠道统计，详细分析不同国家地区数据表现</p>
+                <p class="minor-slogan">在线参数，远程控制游戏内部参数</p>
+                <p class="minor-slogan">实时分析，0毫秒延迟</p>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+        </div>
+        <div id="deno" class="demo container">
+            <a href="#">查看演示数据</a>
+        </div>
+    </div>       
+    <div class="pull-down">
+        <a href="javascript:;">
+            <i class="icon-tt-pulldown">
+             <svg class="fontj bi bi-chevron-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+             </svg>
+            </i>
+        </a>
+    </div>
+    <div class="features" id="features">
+      <div class="container">       
+      <div class="section section-platform">
+        <p class="title">支持主流游戏开发平台</p>
+        <ul>
+            <li><a href="javascript:;">瑞</a></li>
+            <li><a href="javascript:;">瑞</a></li>
+            <li><a href="javascript:;">瑞</a></li>
+            <li><a href="javascript:;">瑞</a></li>
+            <li><a href="javascript:;">瑞</a></li>
+        </ul>
+        <p class="sub-title">各平台接口一致 <span class="hidden-xs">(跨平台)</span>，调用结构简单明了，方便开发者快速集成</p>
+      </div>
+    </div>
+    </div>
+    <div class="section section-stage">
+        <div class="container">
+            <div class="row">
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">最详细的关卡型游戏数据分析</h3> <!-- 最详细的关卡型游戏数据分析 -->
+                    <p class="content">统计各个关卡的新增玩家，活跃玩家，启动次数，时长，通关率/难度等20多项数据指标。</p>
+                    <p class="sub-content">分析关卡的玩家分布，玩家滞留，留存流失 等高级指标，开发者可以直接看到游戏的流失点，通过各个指标交叉对比寻找流失原因。</p>
+                </div>
+                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/stage.png" alt="最详细的关卡型游戏数据分析">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-filter">
+        <div class="container">
+            <div class="row">                                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/filter.png" alt="简便的关卡指标对比">
+                </div>
+
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">简便的关卡指标对比</h3>
+                    <p class="content">产品运营人员可以观察每个关卡的购买，奖励，道具使用等玩家行为，通过对比分析各个指标数据，改进游戏的难度节奏，优化游戏内部机制。</p>
+                    <p class="sub-content">另外支持关卡过滤查询，可以对关卡进行过滤，分组合并，更灵活地分析。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-stage">
+        <div class="container">
+            <div class="row">
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">游戏的平衡</h3>
+                    <p class="content">收集宝石，道具，金币，体力等平衡性数据信息，了解道具和物品产出与消耗情况。开发者可以更精确的进行数值平衡设计，优化游戏内付费商品，带来更好的收益。</p>
+                </div>
+                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/game-balance.png" alt="游戏的平衡">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-filter">
+        <div class="container">
+            <div class="row">                                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/player.png" alt="关卡上发生的购买，道具，奖励，使用等玩家行为">
+                </div>
+
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">玩家行为</h3>
+                    <p class="content">运营人员可以观察每个关卡上发生的购买，道具，奖励，使用等玩家行为，通过对比分析各个指标，改进游戏的难度节奏，优化支付等行为。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-stage">
+        <div class="container">
+            <div class="row">
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">渠道 +</h3>
+                    <p class="content">游戏在不同国家地区的表现差异很大。当您的游戏在全球发行渠道发布时，我们可以将国家地区作为渠道，仔细观察游戏在各个国家的数据差异，尤其适合在 App Store, Google Play 全球发布的应用。</p>
+                    <p class="sub-content">针对推广链接转化的玩家可作为独立渠道进行跟踪统计，不仅仅统计转化率，作为一个渠道长期跟踪分析这部分玩家质量。</p>
+                </div>
+                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/channel.png" alt="渠道 + :将国家地区作为渠道">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-filter">
+        <div class="container">
+            <div class="row">                                
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/online.png" alt="在线参数,远程控制游戏内部参数">
+                </div>
+
+                <div class="intro col-sm-12 col-md-6 col-lg-6">
+                    <h3 class="title">在线参数</h3>
+                    <p class="content">远程控制游戏内部参数，真正做到实时、远程、有效期可控。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font_nplagyy088/iconfont.css">
+    <style>
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .bigbox{
+            font-size: 100%;
+        }
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            box-sizing: border-box;
+            width: 100%;
+            height: 90px;
+            transition: all 0.5s;
+            box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
+            background: rgba(0,0,0,.1);            
+        }
+        .header:hover{
+            background-color: white            
+        }
+        @media (max-width: 1440px){
+            .header .page_nav{
+                width: 100%;
+            }
+          }
+           
+        .page_nav{
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+        .nav_logo_wrap{
+           position: relative;
+           z-index: 2;
+           float: left;
+           padding: 22px 0;
+        }
+        .navbar-logo{
+           display: block;
+           width: 180px;
+           height: 46px;
+           background: url(./img/header-white-logo.svg) 50% 0 no-repeat; 
+           background-size: 100% 100%;
+        }
+        .header:hover .navbar-logo{         
+          background: url(./img/header-logo-dark.svg) 50% 0 no-repeat;            
+        }
+        .nav_right{
+          position: relative;
+          z-index: 2;
+          float: right;
+          padding: 22px 0;
+          text-align: left;
+        }
+        .reserve-btn{
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          color: white;
+          border: 1px solid #fff;
+          line-height: 34px;
+          position: relative;
+          display:inline-block;
+          height: 34px;
+          padding: 0 15px;
+          cursor: pointer;
+          transition: all 0.5s;
+          text-align: center;
+          vertical-align: middle;
+          text-decoration: none !important;
+        }      
+        .header:hover a{
+          color: #6c6c6f !important;
+
+        }
+        .header:hover .reserve-btn{
+          border: 1px solid #6c6c6f;
+        }        
+        .reserve-btn:hover::before{
+          display:block;                                             
+        }
+        .reserve-btn::before{
+          position: absolute;
+          z-index: 3;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          content: ''; 
+          border-bottom: 1px solid rgba(108,108,111,.8);
+          border-left: 1px solid rgba(108,108,111,.8);
+          box-sizing: border-box;
+          display: none;           
+        }
+        .reserve-btn:hover::after{
+          display: block;       
+        }
+        .reserve-btn::after{
+          position: absolute;
+          z-index: 3;
+          top: 0;
+          left: 0;
+          width:100%;
+          height:100%;
+          content: '';        
+          border-top: 1px solid rgba(108,108,111,.8);
+          border-right: 1px solid rgba(108,108,111,.8);      
+          box-sizing: border-box;
+          display: none; 
+        }
+        .newsletter-btn{
+          margin-left: 19px;
+          font-size: 25px;
+          display: inline-block;
+          text-decoration: none !important;
+          color: white;
+          line-height: 36px;
+          width: 36px;
+          height: 36px;
+          text-align: center;
+          vertical-align: middle;
+        }
+        .search-btn{        
+          font-size: 25px;
+          display: inline-block;
+          text-decoration: none !important;
+          color: white;
+          line-height: 36px;
+          width: 36px;
+          height: 36px;
+          margin-left: 10px;
+          position: relative;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+        }
+        .header .nav_main{
+          text-align: center;
+        }
+        .header .nav_main ul{
+          position: relative;
+          z-index: 1;
+          margin-bottom: 0;
+        }
+        .header .nav_main li {
+            line-height: 90px;
+            position: relative;
+            display: inline-block;
+            height: 90px;
+            margin: 0 15px;
+        }
+        .header .nav_main li a{
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-decoration: none;
+          color: white;
+        }
+        .slider-wrapper{
+          z-index: 13;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+        .slider-wrapper .slider-img{
+           width: 100%;
+           height: auto;
+           max-width: none;
+        }
+        .slider-content{
+          position:absolute;
+          top: 15%;
+          bottom: auto;
+          width: 100%;
+          text-align: center;
+          z-index: 10;
+          padding: 0 20px;
+          color: white !important;
+        }
+        .slider-content h5{
+          font-size: 18px;
+        }
+        .imgbigbox{
+          margin: 0 0;
+          position:relative;
+          top: 100px;
+          transition: all 1s;
+          z-index: 200;
+        }
+        .imgbigbox .imglbox{
+          overflow: hidden;
+          padding: 0px 0px;
+          position: relative;
+          text-align: center;
+        }
+        .active{
+          top:0;
+        }
+        .imgbigbox .imglbox img{ 
+          display: block;         
+          max-width: 100%;
+          height: auto;
+          margin:1px;          
+          /* padding: 5px 5px !important; */
+          cursor: pointer;
+          transition: all 2s;        
+        }
+        .imgbigbox .imglbox:hover img{
+          transform: scale(1.1);
+        }
+        .imgbigbox .imglbox:hover .img004{
+          transform: translate(100px,100px);
+        }
+        .w{
+          margin: 5px;
+          overflow: hidden;         
+        }
+        .bg{
+          position: relative;
+        }
+        .img04{
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .contene{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 50px;
+          width: 100%;
+          z-index: 5;
+          padding: 0 20px 20px
+        }
+        strong{
+          font-weight: 700;
+        }
+        .f1{
+          color: #75787b!important;
+        }
+        .f1 h2{
+          margin-bottom: 2px;
+        }
+        .contene .a1 a{
+          text-decoration: none !important;
+          color: #75787b!important;
+        }
+        .icofont:hover .right-a{
+          display: inline-block;
+          position: relative;
+          left:1px;
+          animation: icofontright 0.5s linear 1.1;
+        }
+        @keyframes icofontright {
+            0% {
+                opacity: 1;
+                left:5px;
+            }
+            50% {
+                opacity: 1;
+                left:20px;
+            }
+
+            100% {
+                opacity: 0;
+                left:30px;
+                display: none;
+            }
+        }
+        .f2{
+          color: white;
+        }
+        .contene .a2 a{
+          text-decoration: none !important;
+          color: white !important;
+        }
+        .a3 a{
+          text-decoration: none !important;
+          color: white !important;
+        }
+        .box-imgbigbox{
+          background-color: white !important;
+          z-index: 100;
+        }
+        .footer-0{
+          width: 100%;
+          height: 230px;
+          position: relative;
+          bottom: 237px;
+        }
+
+        /* 底部 */
+        .footer-1{
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          font-size: 16px;
+          width: 100%;
+          color: white !important;
+          background-color: #383736;
+          z-index:-1;                  
+        }
+        .footer-center{
+          padding-top: 50px;
+          padding:50px;
+          margin: 0 auto;
+        }
+        .footer-logo{
+          position: relative;
+          z-index: 1;
+        }
+        .clearfix-wrapper{
+          padding: 0 15px;
+        }
+        .footer-1 .logo{
+          float: left;
+          padding-top:5px;
+        }
+        .content-links{
+          float: left;
+          margin-left: 50px;
+        }
+        .footer-links{
+          line-height: 2;
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #464342;
+        }
+        .footer-links-a{
+          text-decoration: none;
+          color: white;
+          margin: 0 10px;
+          font-size: 12px !important;          
+        }
+        .footer-links-a:hover{          
+          color: white;
+          cursor: pointer;
+        }
+        .language{
+          line-height: 2;
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #464342;
+        }
+        .curr{
+          color: #666563 !important;
+          text-decoration: none !important;
+          margin: 0 10px;
+          font-size: 12px !important;
+        }
+        .content-links-1{
+          margin-left: 111px;
+          font-size: 12px;
+          color: #666563;
+        }
+        @media (max-width: 1046px){
+          .header .page_nav {
+             padding: 0;
+           }
+        }
+        @media (max-width: 1046px){
+          .header .nav_logo_wrap {
+            position: relative;
+            z-index: 10;
+            z-index: 2;
+            float: none;
+            height: 56px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #fff;
+        }
+      }
+      @media (max-width: 1046px){
+        .header .nav_right {
+          position: absolute;
+          z-index: 11;
+          top: 0;
+          right: 18px;
+          padding: 10px 0;
+        }
+      }
+      @media (max-width: 1046px){
+        .header .nav_main {
+            line-height: normal;
+            position: fixed;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            overflow-y: hidden;
+            width: 100%;
+            height: 0;
+            max-height: none;
+            padding: 70px 60px 30px;
+            background: transparent;
+        }
+      }
+      @media (max-width: 1046px){
+        .header .nav_logo_wrap .navbar-logo {
+              width: 100px;
+              height: 56px;
+              margin: auto;
+              background: url(./img/header-logo-dark.svg) 50% 0 no-repeat;
+              background-size: 100% 100%;
+              font-size: 30px;
+              display: inline-block;
+          }
+      }     
+      .header .navbar-mobile-toggle {
+            position: absolute;
+            z-index: 9;
+            left: 21px;
+            display: none;
+            height: auto;
+            margin: 0;
+            padding: 23px 0;
+            border: none;
+            outline: none;
+            background: transparent;
+            overflow: visible;
+            width: auto;
+        }
+        @media (max-width: 1046px){
+        .header .navbar-mobile-toggle {
+              top: 0;
+              display: block;
+              border-color: #ddd;
+          }
+      }
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0;
+      }
+      @media (max-width: 1046px){
+        .header .navbar-mobile-toggle .icon-bar {
+              display: block;
+              width: 22px;
+              height: 2px;
+              transition: all .2s;
+              transform: rotate(0);
+              border-radius: 1px;
+              background: #7a7977;
+              background-color: #888;
+              margin-top: 5px;
+          }
+      }
+      @media (max-width: 1046px){
+        .header .nav_main ul {
+              margin-bottom: 50px;
+              padding-bottom: 50px;
+              border-bottom: 1px solid #9f9e9f;
+          }
+      }
+      @media (max-width: 1046px){
+        .header .nav_main li {
+            line-height: normal;
+            display: block;
+            float: none;
+            width: auto;
+            height: auto;
+            margin: 0 0 10px;
+        }
+      }
+      @media (max-width: 1046px){
+        .header .nav_main li a {
+            font-weight: 400;
+            line-height: 42px;
+            display: inline-block;
+            height: 42px;
+            padding: 0 15px;
+            transition: opacity .2s cubic-bezier(.645,.045,.355,1);
+            text-align: center;
+            letter-spacing: .2px;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            color: #6c6c6f;
+        }
+      }
+      @media (max-width: 1046px){
+        .header .mobile-wrap {
+            visibility: hidden;
+            display: block;
+        }
+      }
+      .header .mobile-wrap {
+            display: none;
+            visibility: hidden;
+        }
+        @media (max-width: 1046px){
+          .header .reserve-btn {
+            display: none;
+           }
+        }
+        .header .nav_main li.menu-reserve {
+             display: none;
+         }
+        @media (max-width: 1046px){
+          .header .nav_main li.menu-reserve {
+                display: block;
+            }
+        }
+        @media (max-width: 1046px){
+           .header .search-btn, .header .newsletter-btn {
+                    margin-left: 0;
+                    color: #6c6c6f;
+                }
+        }
+
+        @media (max-width: 1046px){
+          .header {
+              position: fixed;
+              z-index: 20;
+              top: 0;
+              left: 0;
+              overflow-y: hidden;
+              width: 100%;
+              height: 56px;
+              background: transparent;
+          }
+        }        
+         .open {
+              height: 100%;
+        }
+        .header.open .navbar-mobile-toggle .top-bar{
+            transform: rotate(45deg);
+            transform-origin: 15% 100%;
+        }
+        .header.open .navbar-mobile-toggle .bottom-bar {
+            transform: rotate(-45deg);
+            transform-origin: 38% 90%;
+        }
+        .header.open .nav_main{
+              visibility: visible;
+              height: 100%;
+              transition: background .46s cubic-bezier(.32,.08,.24,1),height .56s cubic-bezier(.52,.16,.24,1);
+              background: #f1f1f0;
+          }          
+        .dnone{
+          display: none;
+        }
+        @media (max-width: 1046px){
+          .footer-1{display:none}
+          .footer-0{display:none;}
+        }
+        @media (max-width:760px){
+           .slider-wrapper h2,.slider-wrapper h5{
+             font-size: 15px;
+           }
+           .contene{
+             font-size: 10px;
+           }
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="bigbox">
+      <!-- 顶部导航栏 -->
+     <div class="header">
+       <div class="page_nav">
+         <div class="nav_logo_wrap">
+           <a href="javascript:;" class="navbar-logo"></a>
+           <button type="button" class="navbar-mobile-toggle">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+           </button>
+         </div>
+         <div class="nav_right">
+           <a href="javascript:;" class="reserve-btn">
+            Reserve your BYTON
+           </a>
+           <a href="javascript:;" class="newsletter-btn iconfont icon-dianziyoujian
+           "></a>
+           <a href="javascript:;" class="search-btn iconfont icon-sousuo"></a>
+         </div>
+         <div class="nav_main">
+           <ul class="clearfix">
+             <li class="item-menu item-menu-sub">
+               <a href="javascript:;">M-BYTE</a>
+             </li>
+             <li class="item-menu item-menu-sub">
+              <a href="javascript:;">K-BYTE</a>
+            </li>
+            <li class="item-menu item-menu-sub">
+              <a href="javascript:;">INSIGHTS</a>
+            </li>
+            <li class="item-menu item-menu-sub">
+              <a href="javascript:;">COMPANY</a>
+            </li>
+            <li class="item-menu item-menu-sub">
+              <a href="javascript:;">FAQ</a>
+            </li>
+            <li class="item-menu menu-reserve">
+              <a href="javascript:;" class="reserve-btn">
+                Reserve your BYTON
+              </a>
+            </li>
+           <div class="mobile-wrap"></div>
+         </div>
+       </div>
+     </div>
+     <!-- 广告层  -->
+     <div class="slider-wrapper">
+       <img src="./img/da.jpg" class="slider-img">
+       <div class="slider-content">
+         <div>
+           <h2>
+             <strong>BYTON M-BYTE. YOUR PLATFORM FOR LIFE.</strong>
+           </h2>
+           <h5>&nbsp;</h5>
+           <h5>
+            The first premium electric SUV with an encapsulating
+            <br>           
+            interior experience as rich as the world it travels.
+           </h5>
+           <div class="icofont a3">
+            <a href="javascript:;">                                                                  
+               Learn more
+            </a>
+            <a href="javascript:;" class="right-a">
+             <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </a>           
+          </div>
+         </div>
+       </div>
+     </div>
+     <!-- 分格 -->
+    <div class="box-imgbigbox">
+     <div class="row imgbigbox">
+      <div class="col-md-6 imglbox">
+        <div class="w">
+          <img src="./img/01.jpg" alt="">         
+        </div> 
+        <div class="contene f1">
+           <h2>
+             <strong>BYTON K-Byte Concept</strong>
+           </h2>
+           <h4>Where design and intelligence meet.</h4>
+           <p></p>
+           <div class="icofont a1">
+             <a href="javascript:;">
+               Explore
+             </a>
+             <a href="javascript:;" class="right-a">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+             </a>
+           </div>
+        </div>      
+      </div>
+      <div class="col-md-6 imglbox">
+        <div class="w">
+          <img src="./img/02.jpg" alt="">
+        </div>
+        <div class="contene f2">
+          <h2>
+            <strong>Visualizer</strong>
+          </h2>
+          <h4>A peek into the future.</h4>
+          <p></p>
+          <div class="icofont a2">
+            <a href="javascript:;">             
+              Visualize your BYTON
+            </a>
+            <a href="javascript:;" class="right-a">
+             <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </a>
+          </div>
+       </div> 
+      </div>
+     </div> 
+     <div class="row imgbigbox">
+      <div class="col-md-6 imglbox">
+        <div class="w">
+          <img src="./img/03.jpg" alt="">
+        </div>
+        <div class="contene f2">
+          <h2>
+            <strong>BYTON Place</strong>
+          </h2>
+          <h4>Immerse yourself in the future of mobility.</h4>
+          <p></p>
+          <div class="icofont a2">
+            <a href="javascript:;">                          
+              Step inside
+            </a>
+            <a href="javascript:;" class="right-a">
+             <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </a>
+          </div>
+       </div> 
+      </div>
+      <div class="col-md-6 imglbox">
+       <div class="w bg">
+        <img src="./img/042.png" alt="">
+        <img src="./img/041.png" alt="" class="img04 img004">         
+        <img src="./img/04.png" alt="" class="img04">        
+       </div>
+       <div class="contene f2">
+        <h2>
+          <strong>BYTON App</strong>
+        </h2>
+        <h4>The future of mobility at your fingertips.</h4>
+        <p></p>
+        <div class="icofont a2">
+          <a href="javascript:;">                                      
+             Discover
+          </a>
+          <a href="javascript:;" class="right-a">
+           <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+          </a>
+        </div>
+       </div> 
+      </div>
+     </div>
+     <div class="row imgbigbox imgbox-03">
+      <div class="col-md-12 imglbox">
+        <div class="w">
+          <img src="./img/05.jpg" alt="">
+        </div>
+        <div class="contene f2">
+          <h2>
+            <strong>Careers</strong>
+          </h2>
+          <h4>Time to shape your career.</h4>
+          <p></p>
+          <div class="icofont a2">
+            <a href="javascript:;">                                                    
+              Join our growing teams
+            </a>
+            <a href="javascript:;" class="right-a">
+             <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div> 
+      </div>
+     </div>
+     <!-- 底部  -->        
+    </div>
+    <div class="footer-0"></div> 
+    <!-- 底部 -->
+    <footer class="footer-1">
+      <div class="footer-center">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-7 footer-logo">
+            <div class="row">
+              <div class="clearfix-wrapper">
+                <a href="javascript:;" class="logo">
+                  <img src="" alt="">
+                </a>
+              </div>
+              <div class="content-links">
+                <div class="footer-links">
+                  <a href="javascript:;" class="footer-links-a" id="m1">Newsroom</a>
+                  <a href="javascript:;" class="footer-links-a">Knowledge</a>
+                  <a href="javascript:;" class="footer-links-a">Developer</a>
+                  <a href="javascript:;" class="footer-links-a">Privacy</a>
+                  <a href="javascript:;" class="footer-links-a">Terms</a>
+                  <a href="javascript:;" class="footer-links-a">Contact</a>
+                </div>
+                <div class="language">
+                 <a href="#" class="footer-links-a">International</a>
+                 <a href="http://www.byton.cn" class="curr">中国</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+           <div class="col-md-12">
+             <div class="content-links-1">
+              BYTON M-Byte is not yet available for sale.
+              <br>
+              Specifications are preliminary and may change without notice. The content herein is provided for informational purposes only.&nbsp;
+             </div>            
+           </div>
+          </div>
+        </div>
+      </div>
+    </footer>  
+   </div>
+   <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+   <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script> 
+   <script>
+     $(document).on("scroll",function(){
+        $('.imgbigbox').each(function(index,element){
+          if (
+            $(element).offset().top <=
+            $(document).scrollTop() + window.innerHeight
+          ) {
+            $(element).addClass("active");
+          } else {
+            $(element).removeClass("active");
+          }
+        })
+     })
+
+     $(".navbar-mobile-toggle").on("click",function(){
+          $(".header").toggleClass("open");
+          $(".box-imgbigbox").toggleClass("dnone");
+          $(".footer-1").toggleClass("dnone");
+     })
+   </script>
+</body>
+</html>

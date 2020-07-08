@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .swiper{
+            width: 1000px;
+            overflow: hidden;
+            margin: auto;
+            position: relative;            
+        }
+        .swiper .content{
+            width: 5000px;
+            overflow: hidden;
+            position: relative;
+        }
+        .swiper .content li{
+            width: 1000px;
+            height: 250px;
+            float: left;
+        }
+        .swiper .pagination{
+            font-size: 0;
+            position: absolute;
+            bottom: 10px;
+            left: 450px;
+        }
+        .swiper .pagination li{
+            width: 10px;
+            height: 10px;
+            background: white;
+            font-size: 12px;
+            display: inline-block;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .swiper .pagination li.w{
+            background-color: red;
+        }
+        .contorl .left{
+            position: absolute;
+            top: 110px;
+            left: 0;
+            border: 1px solid white;
+            padding: 5px 5px;
+            background-color: whitesmoke;
+            color: tomato;
+            cursor: pointer;
+        }
+        .contorl .right{
+            position: absolute;
+            top: 110px;
+            right:0;
+            border: 1px solid white;
+            padding: 5px 5px;
+            background-color: whitesmoke;
+            color: tomato;
+            cursor: pointer;
+        }
+        .nottext{
+            
+            -moz-user-select:none;/*火狐*/
+            -webkit-user-select:none;/*webkit浏览器*/
+            -ms-user-select:none;/*IE10*/
+            -khtml-user-select:none;/*早期浏览器*/
+            user-select:none;
+
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            
+        }
+        .contorl{
+            display: none;
+            
+        }
+    </style>
+
+</head>
+<body>
+  <div class="swiper">
+      <ul class="content">
+          <li style="background: lightblue;"><img src="./img/1.jpg" alt=""></li>
+          <li style="background: lightcoral;"><img src="./img/2.jpg" alt=""></li>
+          <li style="background: lightgreen;"><img src="./img/3.jpg" alt=""></li>
+          <li style="background: lightseagreen;"><img src="./img/4.jpg" alt=""></li>
+          <li style="background: blueviolet;"><img src="./img/5.jpg" alt=""></li>
+      </ul>
+      <ul class="pagination">
+          <li class="w"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+      <div class="contorl">
+         <span class="left nottext"><</span>
+         <span class="right nottext">></span>
+      </div>
+  </div> 
+  <script>
+    // 或者给每个 图片一个索引标识
+    $(".content li").attr("title",function(index){
+        return index
+    }) 
+    // 根据原始的 下表查找 对应的图片
+    function filterByIndex(n){
+        return $(".content li").filter(function(index){
+            return $(this).attr("title") == n
+        })
+    }
+
+
+    // 显示下一张方法
+    function  nextPic(){
+        $('.content').animate({
+           left:"-1000px" 
+        },function(){
+            // 动画完成之后 把当前第一张移动到最后面
+            $(".content").children().first().appendTo($(".content"))
+            // 恢复定位0
+            $(".content").css({left:0})
+        })
+        // 先确定当前下标
+        var currentIndex = $(".content").children().first().attr('title')
+        // 根据当前确定 下一张
+        var prepareIndex = ++currentIndex > $(".content li").length - 1 ? 0 : currentIndex
+        //找到下一张的小点点添加高亮
+        $(".pagination li").eq(prepareIndex).addClass('w').siblings().removeClass("w");
+    }
+    function prevPic(){
+        $('.content').css({left:'-1000px'}).animate({
+            left:"0"
+        })
+    }
+
+    $(".pagination li").click(function(){
+        // 获取当前显示图片的原始下标
+        var currentIndex = $(".content").children().first().attr('title')
+        // 获取即将显示的图片的 下标
+        var prepareIndex = $(this).index()
+        // 判断两个下标 
+        if(currentIndex < prepareIndex){
+            // 即将显示的图片在 当前的后面 
+            // 找到即将显示的图片插入到当前第一张之后
+            $(".content").children().first().after(filterByIndex(prepareIndex))
+            // 从右到左 滚动
+            nextPic()
+        }else{
+            // 即将显示的图片 原始位置 在 当前的 [前面]
+            $(".content").children().first().before(filterByIndex(prepareIndex))
+            prevPic()
+        }
+        $(this).addClass('w').siblings().removeClass("w");
+    })
+
+
+    // 下一张点击
+    $(".contorl span").last().click(function(){
+        // 先确定当前下标 
+        var currentIndex = $(".content").children().first().attr('title')
+        // 根据当前确定 下一张
+        var prepareIndex = ++currentIndex > $(".content li").length - 1 ? 0 : currentIndex
+        //找到下一张的小点点添加高亮
+        $(".pagination li").eq(prepareIndex).addClass('w').siblings().removeClass("w"); 
+        // 确定好的下一张 不管大小都放到 当前后面 哪怕是从5=>1 
+        $(".content").children().first().after(filterByIndex(prepareIndex))
+        // 从右到左 滚动
+        nextPic()
+    })
+
+
+    // 上一张点击
+    $(".contorl span").first().click(function(){
+        // 先确定当前下标
+        var currentIndex = $(".content").children().first().attr('title')
+        // 根据当前确定 下一张
+        var prepareIndex = --currentIndex < 0 ? $(".content li").length - 1 : currentIndex
+        //找到下一张的小点点添加高亮
+        $(".pagination li").eq(prepareIndex).addClass('w').siblings().removeClass("w"); 
+        // 确定好的下一张 不管大小都放到 当前后面 哪怕是从5=>1 
+        $('.content').children().first().before(filterByIndex(prepareIndex))
+        // 从左到右 滚动
+        prevPic()
+    })
+    timer = setInterval(nextPic, 2000);
+
+    $(".swiper").on("mouseover",function(){
+        $(".contorl").css({
+            display:"block"
+        }) 
+        clearInterval(timer);    
+    })
+
+    $(".swiper").on("mouseout",function(){
+        $(".contorl").css({
+            display:"none"
+        })
+        clearInterval(timer);
+        timer = setInterval(nextPic, 2000);
+    })       
+  </script> 
+</body>
+</html>
