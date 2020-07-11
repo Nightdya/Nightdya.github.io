@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigbox{
+            display: inline-block;
+            width: 500px;
+            height: 500px;
+            /* margin: auto auto; */
+        }
+        .card{
+            display: inline-block;
+            margin: 10px;
+            background: #fff;
+            padding: 15px;
+            min-width: 200px;
+            box-shadow: 0 3px 5px #ddd;
+            color: #555;
+            position: relative;          
+        }
+        .msk-all{
+            width: 230px;
+            height: 230px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            transition: all 1s;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .card-box{
+            margin: auto;
+            background: #ddd;
+            cursor: pointer;
+            box-shadow: 0 0 5px #ccc inset;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            transition: 1s;
+        }
+        .card-box-m{
+            box-shadow: inset 0 0 0 16px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+            background-size: cover;
+        }
+        /* Hover effect 1 */
+        .card .box1{
+            border: 10px solid #ecab18;
+            border-right-color: #1ad280;
+            border-bottom-color: #1ad280;
+        }
+        .card:hover .box1{
+            transform: rotate(180deg);            
+        }
+
+        .card:hover .msk1{
+            opacity: 1;          
+        }
+
+        .img1{         
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: auto;
+            height: auto;
+        }
+        .img-1 .img1{
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .msk1{          
+            top: 25px;
+            left: 25px;
+        }
+        h3{
+            color: white;
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        P{
+            color: #bbb;
+            padding: 10px 5px;
+            text-align: center;
+            margin: 0 30px;
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        /* Hover effect 2 */
+        .card .box2{            
+            background: url(./img/5.jpg) no-repeat;
+        }
+        .box2:hover{
+            transform: rotate(-90deg);            
+        }
+        .msk2{
+            top: 14px;
+            left: 290px;
+        }
+        .box2:hover +.msk2{
+            transform: translateX(-275px);  
+            display: block;
+            opacity: 1;          
+        }
+
+        /* Hover effect 3 */
+        .card{
+            z-index:0;
+        }
+        .card .box3{
+            background: url(./img/1.jpg) no-repeat;
+        }
+        .box3:hover {
+            transform: scale(0.4) translateY(-270px);                      
+        }
+        .msk3{
+            top: 14px;
+            left: 290px;
+            z-index: -1; 
+        }
+        .box3:hover +.msk3{
+            transform:translateX(-275px);
+            opacity: 1;            
+        }
+        /* Hover effect 4 */
+        .card .box4{
+            background: url(./img/6.jpg) no-repeat;
+        }
+        .box4:hover{
+            transform:translateX(-270px); 
+            opacity: 0;          
+        }
+        .msk4{
+            top: 14px;
+            left: 290px;
+            z-index: -1; 
+        }
+        .box4:hover +.msk4{
+            transform:translateX(-275px);
+            opacity: 1;            
+        }
+        /* Hover effect 5 */
+        .card .box5{
+            background: url(./img/3.jpg) no-repeat;
+        }
+        .msk5{
+            top: 14px;
+            left: 14px;
+        }
+        .card:hover .msk5{
+            opacity: 1;                  
+        }
+        /* Hover effect 6 */
+        .card .box6{
+            background: url(./img/3.jpg) no-repeat;
+        }
+        .msk6{
+            top: 14px;
+            left: 14px;
+            transform: scale(0.6)
+        }
+        .card:hover .box6{
+            transform:scale(1.5); 
+            opacity: 0;          
+        }
+        .card:hover .msk6{
+            transform:scale(1); 
+            opacity: 1;          
+        }
+         /* Hover effect 7 */
+         .card .box7{
+            background: url(./img/7.jpg) no-repeat;
+        }
+        .box7:hover{
+            transform:scale(0.5); 
+            opacity: 0;          
+        }
+        .msk7{
+            top: 14px;
+            left: 290px;
+            z-index: -1; 
+        }
+        .box7:hover +.msk7{
+            transform:translateX(-275px);
+            opacity: 1;            
+        }
+         /* Hover effect 8 */
+         .box8{
+            box-shadow:none;
+            background:white;
+         }
+         .card-8{
+            transition: all 0.5s;
+        }
+        .img-2{         
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: url(./img/2.jpg) no-repeat;
+            background-size: cover;
+            transition: all 1s;
+            transition-delay: 1s;
+        }
+        .img-2:before {
+            position: absolute;           
+            display: block;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 16px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+        .msk8{
+            opacity: 0;
+            transition: all 1s;
+            transition-delay:1s;
+        }
+        .msk-8{
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            top: 14px;
+            left: 210px;
+            transform: scale(0.5);
+            transition: all 1s;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .card-8:hover{
+            transform: scale(0.5);
+        }
+        .card:hover .img-2{           
+            transform:translateX(-410px);
+            opacity: 0;
+        }
+        .card:hover .msk8{
+            transform:translateX(-395px);
+            opacity: 1;
+        }
+        .msk-8:hover{            
+             transform: scale(1);
+             left: 415px;
+        }
+         /* Hover effect 9 */
+         .card .box9{
+            background: url(./img/7.jpg) no-repeat;
+        }
+        .card:hover .box9{
+            transform:translateX(200px) rotate(180deg); 
+            opacity: 0;          
+        }
+        .msk9{
+            top: 14px;
+            left: 14px;
+            z-index: -1; 
+            transform: scale(0.5);  
+        }
+        .card:hover .msk9{
+            opacity: 1; 
+            transform: scale(1);           
+        }
+
+        /* Hover effect 10 */
+        .card{
+            z-index:0;
+        }
+        .card .box10{
+            background: url(./img/1.jpg) no-repeat;
+            transition: all 0.5s;
+        }
+        .box10:hover {
+            transform: scale(0.5) translateY(-113px);                      
+        }
+        .msk10{
+            top: 14px;
+            left: 14px;
+            z-index: -1; 
+            transform: scale(0.5);
+            transition: all 0.5s;
+        }
+        .box10:hover +.msk10{
+            transform:scale(1);
+            opacity: 1;            
+        }
+        .msk10 h3{
+            margin: 94px 30px 0;
+            padding: 25px 0 0 0;
+            height: 61px;
+        }
+         /* Hover effect 11 */
+         .card .box11{
+            background: url(./img/6.jpg) no-repeat;
+            transition: all 1s;
+            opacity: 1;
+        }
+        .box11:hover {
+            transform:rotateY(180deg) scale(0.3);
+            opacity: 0;                      
+        }
+        .msk11{
+            top: 14px;
+            left: 14px;
+            z-index: -1; 
+            transform:scale(0.3) rotateY(180deg);
+            transition: all 1s;
+        }
+        .box11:hover +.msk11{
+            transform:scale(1);
+            opacity: 1; 
+            transition-delay: 1s;            
+        }
+         /* Hover effect 12 */
+         .card .box12{
+            background: url(./img/5.jpg) no-repeat;
+        }
+        .card:hover .box12{
+            transform:translateX(200px) rotate(180deg); 
+            opacity: 0;          
+        }
+        .msk12{
+            top: 14px;
+            left: 200px;
+            z-index: -1;
+                         
+        }
+        .box12:hover +.msk12{
+            opacity: 1; 
+            transform:translateX(-185px) rotate(-360deg);  
+            transition-delay: 1s;         
+        }
+        /* Hover effect 13 */
+        .card .box13{
+            background: url(./img/3.jpg) no-repeat;
+        }
+        .msk13{
+            top: 14px;
+            left: 14px;
+            /* opacity: 1;  */
+            overflow: hidden;
+        }
+        .msk13 h3{
+            margin-left: -336px;
+            transition: all 0.5s;
+        }
+        .msk13 p{
+            position: absolute;
+            right: -189px;
+            transition: all 0.5s;
+        }
+        .card:hover .msk13{
+            opacity: 1;                  
+        }
+        .card:hover .msk13 h3{
+            margin-left:0;                  
+        }
+        .card:hover .msk13 p{
+            right: 16px;                 
+        }
+        /* Hover effect 14 */
+        .card .box14{
+            background: url(./img/6.jpg) no-repeat;
+            transform-origin: left;
+        }
+        .box14:hover{
+            transform:rotateY(180deg); 
+            
+            opacity: 0;          
+        }
+        .msk14{
+            top: 14px;
+            left: 245px;
+            z-index: -1; 
+            transform-origin: left;
+            transition-delay: .5s;          
+        }
+        .msk14 h3,.msk14 p{
+            transform:rotateY(180deg); 
+        }
+        .box14:hover +.msk14{                       
+            opacity: 1; 
+            transform:rotateY(180deg);            
+        }
+         /* Hover effect 15 */
+         .card .box15{
+            background: url(./img/4.jpg) no-repeat;
+        }
+        .card:hover .box15{
+            transform: rotateZ(720deg) scale(0.5);
+            opacity: 0;
+        }
+        .msk15{
+            top: 14px;
+            left: 14px;
+            transform:rotateZ(0deg) scale(0.1);
+        }
+        .card:hover .msk15{
+            transform: rotateZ(720deg) scale(1);
+            opacity: 1;                  
+        }
+
+        /* Hover effect 16 */
+        .card .box16{
+            background: url(./img/6.jpg) no-repeat;
+            transform-origin: right;
+        }
+        .box16:hover{
+            transform:rotateZ(-130deg);                    
+        }
+        .msk16{
+            top: 15px;
+            left: 15px;
+            z-index: -1; 
+            transform-origin: left;
+            opacity: 1;        
+        }
+        /* Hover effect 17 */
+        .card .box17{
+            background: url(./img/1.jpg) no-repeat;
+        }
+        .msk17{
+            top: 14px;
+            left: 14px;
+        }
+        .msk17 h3,.msk17 p{
+            transition: all 0.5s;
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        .card:hover .msk17{
+            opacity: 1;                  
+        }
+        .card:hover .msk17 h3{
+            transform: scale(1);
+            opacity: 1;                  
+        }
+        .card:hover .msk17 p{
+            transform: scale(1);
+            opacity: 1;                  
+        }
+        /* Hover effect 18 */
+        .card .box18{
+            background: url(./img/5.jpg) no-repeat;
+            transform-origin: right;
+        }
+        .box18:hover{
+            transform:rotateY(200deg);                     
+        }
+        .msk18{
+            top: 15px;
+            left: 15px;
+            z-index: -1; 
+            transform-origin: left;
+            opacity: 1;        
+        }
+        /* Hover effect 19 */
+        .card .box19{
+            background: url(./img/3.jpg) no-repeat;
+        }
+        .msk19{
+            top: 14px;
+            left: 14px;
+            transform: scale(0.4);
+        }
+        .card:hover .msk19{
+            transform: scale(1);
+            opacity: 1;                  
+        }
+         /* Hover effect 20 */
+         .card-20{
+             /* transform-style: preserve-3d; */
+             /* perspective: 1000; */
+         }
+         .card .box20{
+            background: url(./img/2.jpg) no-repeat;
+            transform-origin: bottom;
+            opacity: 1;
+            transition:all 0.5s;
+        }
+        .msk20{
+            top: -104px;
+            left: 14px;
+            transform-origin:center;
+            transform: rotateX(90deg);
+            /* transform: translateZ(100px); */
+            /* transform-style: preserve-3d; */
+            transition:all .5s;
+            background-color: black;
+            opacity: 1;              
+        }
+        .card:hover .box20{
+             transform: rotateX(90deg);
+             opacity: 0;
+        }
+        .card:hover .msk20{
+            transform: rotateX(0deg) translateZ(250px);
+            opacity: 1;  
+            transition: all 0s;
+            transition-delay: 0.5s; 
+            top: 14px;
+            left: 14px;              
+        }
+    </style>
+</head>
+<body>
+    <div class="bigbox">
+    <h4>Hover effect 1</h4>
+    <div class="card">
+        <div class="box1 card-box"></div>
+        <div class="img-1">
+            <img src="./img/2.jpg" alt="" class="img1">
+        </div>  
+        <div class="msk1 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+    </div> 
+
+    <div class="bigbox">
+    <h4>Hover effect 2</h4>
+    <div class="card card-2">
+        <div class="box2 card-box card-box-m"></div> 
+        <div class="msk2 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="bigbox">
+    <h4>Hover effect 3</h4>
+    <div class="card">
+        <div class="box3 card-box card-box-m"></div> 
+        <div class="msk3 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+<div class="bigbox">
+    <h4>Hover effect 4</h4>
+    <div class="card">
+        <div class="box4 card-box card-box-m"></div> 
+        <div class="msk4 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 5</h4>
+    <div class="card">
+        <div class="box5 card-box card-box-m"></div> 
+        <div class="msk5 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 6</h4>
+    <div class="card">
+        <div class="box6 card-box card-box-m"></div> 
+        <div class="msk6 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 7</h4>
+    <div class="card">
+        <div class="box7 card-box card-box-m"></div> 
+        <div class="msk7 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 8</h4>
+    <div class="card">
+        <div class="card-8">
+        <div class="box8 card-box">
+        <div class="img-2"></div> 
+       </div>
+       </div> 
+       
+       <div class="msk-8">
+        <div class="msk8 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div> 
+       </div>     
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 9</h4>
+    <div class="card">
+        <div class="box9 card-box card-box-m"></div> 
+        <div class="msk9 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+  <div class="bigbox">
+    <h4>Hover effect 10</h4>
+    <div class="card">
+        <div class="box10 card-box card-box-m"></div> 
+        <div class="msk10 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 11</h4>
+    <div class="card">
+        <div class="box11 card-box card-box-m"></div> 
+        <div class="msk11 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 12</h4>
+    <div class="card">
+        <div class="box12 card-box card-box-m"></div> 
+        <div class="msk12 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 13</h4>
+    <div class="card">
+        <div class="box13 card-box card-box-m"></div> 
+        <div class="msk13 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 14</h4>
+    <div class="card">
+        <div class="box14 card-box card-box-m"></div> 
+        <div class="msk14 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 15</h4>
+    <div class="card">
+        <div class="box15 card-box card-box-m"></div> 
+        <div class="msk15 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="bigbox">
+    <h4>Hover effect 16</h4>
+    <div class="card">
+        <div class="box16 card-box card-box-m"></div> 
+        <div class="msk16 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 17</h4>
+    <div class="card">
+        <div class="box17 card-box card-box-m"></div> 
+        <div class="msk17 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 18</h4>
+    <div class="card">
+        <div class="box18 card-box card-box-m"></div> 
+        <div class="msk18 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="bigbox">
+    <h4>Hover effect 19</h4>
+    <div class="card">
+        <div class="box19 card-box card-box-m"></div> 
+        <div class="msk19 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+
+<div class="bigbox">
+    <h4>Hover effect 20</h4>
+    <div class="card card-20">
+        <div class="box20 card-box card-box-m"></div> 
+        <div class="msk20 msk-all">
+            <h3>HEADING<br>HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
