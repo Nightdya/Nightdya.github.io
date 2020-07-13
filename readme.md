@@ -18,6 +18,7 @@
         <br />
         <a href="Nightdya.github.io/Magnifier/放大镜.html">放大镜</a>     
 </div>
+<br />
 <div>
         <h1>javascript</h1>
         <a href="Nightdya.github.io/javascript/美颜对比.html">美颜对比</a>
