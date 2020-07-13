@@ -1,28 +1,51 @@
 <div>
         <h1>bootstrap</h1>
-        <a href="Nightdya.github.io/bootstrap/practice01/项目考核/项目考核.html">项目一</a>
+        <a href="Nightdya.github.io/bootstrap/practice01/项目考核/项目考核.html">
+        <p><img src="img/bootstrap01.png" alt=""></p>
+        <p>项目一</p>
+        </a>
         <br />
-        <a href="Nightdya.github.io/bootstrap/practice02/练习2.html">项目二</a>        
+        <a href="Nightdya.github.io/bootstrap/practice02/练习2.html">
+        <p><img src="img/bootstrap02.png" alt=""></p>
+         <p>项目二</p>
+        </a>        
 </div>
 <br />
 <div>
         <h1>CSS3</h1>
-        <a href="Nightdya.github.io/CSS3/CSS3hover动画.html">CSS3hover动画</a>
+        <a href="Nightdya.github.io/CSS3/CSS3hover动画.html">
+        <p><img src="img/CSS301.png" alt=""></p>
+        <P>CSS3hover动画</P>
+        </a>
         <br />
-        <a href="Nightdya.github.io/CSS3/CSS3统计图.html">CSS3统计图</a>        
+        <a href="Nightdya.github.io/CSS3/CSS3统计图.html">
+        <p><img src="img/CSS302.png" alt=""></p>
+        <p>CSS3统计图</p>
+        </a>        
 </div>
 <br />
 <div>
         <h1>jquery</h1>
-        <a href="Nightdya.github.io/jquery/banner/无缝轮播图.html">无缝轮播图</a>
+        <a href="Nightdya.github.io/jquery/banner/无缝轮播图.html">
+        <p><img src="img/JQ01.png" alt=""></p>    
+        <p>无缝轮播图</p>
+        </a>
         <br />
-        <a href="Nightdya.github.io/jquery/Magnifier/放大镜.html">放大镜</a>     
+        <a href="Nightdya.github.io/jquery/Magnifier/放大镜.html">
+        <p><img src="img/JQ2.png" alt=""></p>  
+        <p>放大镜</p>
+        </a>     
 </div>
 <br />
 <div>
         <h1>javascript</h1>
-        <a href="Nightdya.github.io/javascript/美颜对比.html">美颜对比</a>
-        <br />
-        <a href="Nightdya.github.io/javascript/手风琴.html">手风琴</a>     
+        <a href="Nightdya.github.io/javascript/美颜对比.html">
+        <p><img src="img/Javascript01.png" alt=""></p>  
+        <p>美颜对比</p>
+        </a>
+        <a href="Nightdya.github.io/javascript/手风琴.html">
+        <p><img src="img/Javascript02.png" alt=""></p>  
+        <p>手风琴</p>
+        </a>     
 </div>
 
