@@ -51,7 +51,7 @@
          <br />
         <a href="Nightdya.github.io/javascript/别踩白方块儿.html">
         <p><img src="img/Javascript03.png" alt=""></p>  
-        <p>手风琴</p>
+        <p>别踩白方块儿</p>
         </a>  
 </div>
 
