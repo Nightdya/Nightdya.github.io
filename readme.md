@@ -14,8 +14,15 @@
 <br />
 <div>
         <h1>jquery</h1>
-        <a href="Nightdya.github.io/banner/无缝轮播图.html">无缝轮播图</a>
+        <a href="Nightdya.github.io/jquery/banner/无缝轮播图.html">无缝轮播图</a>
         <br />
-        <a href="Nightdya.github.io/Magnifier/放大镜.html">放大镜</a>     
+        <a href="Nightdya.github.io/jquery/Magnifier/放大镜.html">放大镜</a>     
+</div>
+<br />
+<div>
+        <h1>javascript</h1>
+        <a href="Nightdya.github.io/javascript/美颜对比.html">美颜对比</a>
+        <br />
+        <a href="Nightdya.github.io/javascript/手风琴.html">手风琴</a>     
 </div>
 
