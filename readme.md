@@ -19,7 +19,7 @@
         </a>
         <br />
         <a href="Nightdya.github.io/CSS3/CSS3统计图.html">
-        <p><img src="img/CSS301.png" alt=""></p>
+        <p><img src="img/CSS302.png" alt=""></p>
         <p>CSS3统计图</p>
         </a>        
 </div>
