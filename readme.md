@@ -24,7 +24,7 @@
         </a>   
         <br />
         <a href="Nightdya.github.io/CSS3/阴影效果.html">
-        <p><img src="img/W37JW5ZEC3RI％QS45NNLRL4.png" alt=""></p>
+        <p><img src="img/W37JW5ZEC3RI%QS45NNLRL4.png" alt=""></p>
         <p>阴影效果</p>
         </a> 
 </div>
