@@ -43,9 +43,15 @@
         <p><img src="img/Javascript01.png" alt=""></p>  
         <p>美颜对比</p>
         </a>
+        <br />
         <a href="Nightdya.github.io/javascript/手风琴.html">
         <p><img src="img/Javascript02.png" alt=""></p>  
         <p>手风琴</p>
-        </a>     
+        </a>
+         <br />
+        <a href="Nightdya.github.io/javascript/别踩白方块儿.html">
+        <p><img src="img/Javascript03.png" alt=""></p>  
+        <p>别踩白方块儿</p>
+        </a>  
 </div>
 
