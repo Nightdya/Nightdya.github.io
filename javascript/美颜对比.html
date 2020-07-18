@@ -13,7 +13,6 @@
             .stage .mask {
                 width: 50%;
                 height: 100%;
-                /* background: rgba(255, 0, 0, 0.5); */
                 background: url("./img/before.jpg");
                 background-size: auto 100%;
                 position: absolute;
@@ -30,7 +29,6 @@
                 bottom: 0;
                 width: 100%;
                 margin: 0;
-                /* display: none; */
                 opacity: 0;
                 z-index: 9;
             }
@@ -55,8 +53,6 @@
         </style>
     </head>
     <body>
-        <!-- <img src="./img/before.jpg" alt=""> -->
-
         <div class="stage">
             <div class="mask"></div>
             <img src="./img/after.jpg" alt="" />
@@ -72,12 +68,9 @@
 
             var dot = stage.getElementsByTagName("span")[0];
             range.oninput = function () {
-                // console.log(typeof this.value, this.value);
                 mask.style.width = this.value + "%";
                 dot.style.left = this.value + "%";
             };
         </script>
-
-        <!-- 作业 https://www.17sucai.com/pins/demo-show?id=25562 -->
     </body>
 </html>
