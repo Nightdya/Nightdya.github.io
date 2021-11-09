@@ -23,7 +23,7 @@
         <p>阴影效果</p>
         </a> 
         <br />
-        <a href="Nightdya.github.io/CSS3/别踩白方块儿.html">
+        <a href="Nightdya.github.io/javascript/别踩白方块儿.html">
         <p>别踩白方块儿</p>
         </a> 
 </div>
